@@ -99,6 +99,15 @@ class AddCard extends React.Component {
     this.setState({ pendingValue: "" });
   };
 
+  handleOnDragEnd = (result) => {
+    console.log(result);
+    const items = Array.from(this.state.inputText);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    console.log(items);
+    this.setState({ inputText: items });
+  };
+
   render() {
     if (this.state.isEditing === false) {
       return (
@@ -111,7 +120,7 @@ class AddCard extends React.Component {
     } else {
       return (
         <form onSubmit={this.handleSubmit}>
-          <DragDropContext>
+          <DragDropContext onDragEnd={this.handleOnDragEnd}>
             <Droppable droppableId="cardNameList">
               {(provided) => (
                 <ul
