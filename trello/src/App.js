@@ -29,12 +29,9 @@ class InputForm extends React.Component {
     if (this.state.isEditing === false) {
       return (
         <form onSubmit={this.handleSubmit}>
-          <h2>Phase 1-2</h2>
+          <h2>Phase 2-1</h2>
           <button className="button" onClick={this.handleOpen}>
             + Add List
-          </button>
-          <button className="button" onClick={this.handleClose}>
-            X
           </button>
         </form>
       );
@@ -68,10 +65,50 @@ const Todo = (props) => {
       <div className="boxWraper">
         <label>{props.name}</label>
       </div>
-      <div className="btnGroup"></div>
+      <AddCard />
     </li>
   );
 };
+
+class AddCard extends React.Component {
+  state = { isEditing: false };
+
+  showTypeArea = () => {
+    this.setState({ isEditing: true });
+  };
+
+  hideTypeArea = () => {
+    this.setState({ isEditing: false });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  render() {
+    if (this.state.isEditing === false) {
+      return (
+        <div className="btnGroup">
+          <button className="button" onClick={this.showTypeArea}>
+            + Add a card
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" className="inputText"></input>
+          <div className="btnGroup">
+            <button className="button">+ Add a card</button>
+            <button className="button" onClick={this.hideTypeArea}>
+              X
+            </button>
+          </div>
+        </form>
+      );
+    }
+  }
+}
 
 // function App() {
 class App extends React.Component {
@@ -82,15 +119,12 @@ class App extends React.Component {
   handleAddTask = (content) => {
     console.log(content);
     let newData = this.state.data;
-    // console.log(newData);
     newData.push({
       id: this.state.data.length,
       name: content,
       completed: false,
     });
-    // console.log(newData);
     this.setState(newData);
-    // console.log(this.state);
   };
 
   render() {
@@ -99,7 +133,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <InputForm addTask={this.handleAddTask} />
-
         <ul className="todoList">
           {this.state.data.map((item) => (
             <Todo
