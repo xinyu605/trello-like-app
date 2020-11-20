@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { nanoid } from "nanoid";
 
 class InputForm extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class InputForm extends React.Component {
     if (this.state.isEditing === false) {
       return (
         <form onSubmit={this.handleSubmit}>
-          <h2>Phase 2-1</h2>
+          <h2>Phase 2-2</h2>
           <button className="button" onClick={this.handleOpen}>
             + Add List
           </button>
@@ -38,7 +39,7 @@ class InputForm extends React.Component {
     } else {
       return (
         <form onSubmit={this.handleSubmit}>
-          <h2>Phase 1-2</h2>
+          <h2>Phase 2-2</h2>
           <input
             type="text"
             id="newTodoInput"
@@ -71,7 +72,7 @@ const Todo = (props) => {
 };
 
 class AddCard extends React.Component {
-  state = { isEditing: false };
+  state = { isEditing: false, pendingValue: "", inputText: [] };
 
   showTypeArea = () => {
     this.setState({ isEditing: true });
@@ -81,8 +82,17 @@ class AddCard extends React.Component {
     this.setState({ isEditing: false });
   };
 
+  getInput = (event) => {
+    // console.log(event.currentTarget.value);
+    this.setState({ pendingValue: event.currentTarget.value });
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
+    // console.log(this.state.pendingValue);
+    let updateText = this.state.inputText.push(this.state.pendingValue);
+    this.setState({ updateText });
+    this.setState({ pendingValue: "" });
   };
 
   render() {
@@ -97,9 +107,26 @@ class AddCard extends React.Component {
     } else {
       return (
         <form onSubmit={this.handleSubmit}>
-          <input type="text" className="inputText"></input>
+          <ul className="cardNameList">
+            {/* <CardName inputText={this.state.inputText} /> */}
+            {this.state.inputText.map((name) => {
+              return (
+                <li className="cardName" key={nanoid()}>
+                  {name}
+                </li>
+              );
+            })}
+          </ul>
+          <input
+            type="text"
+            className="inputText"
+            onChange={this.getInput}
+            value={this.state.pendingValue}
+          ></input>
           <div className="btnGroup">
-            <button className="button">+ Add a card</button>
+            <button className="button" type="submit">
+              + Add a card
+            </button>
             <button className="button" onClick={this.hideTypeArea}>
               X
             </button>
@@ -108,6 +135,19 @@ class AddCard extends React.Component {
       );
     }
   }
+}
+
+{
+  /* // const CardName = (props) => {
+//   console.log(props);
+//   let nameList = props.inputText.map((name) => {
+//     <li>name</li>;
+//   });
+
+  return (
+    {props.inputText.map((name)=>())}
+  )
+}; */
 }
 
 // function App() {

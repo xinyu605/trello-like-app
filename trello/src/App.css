@@ -14,6 +14,10 @@
 ul {
   width: 100%;
 }
+
+li {
+  list-style-type: none;
+}
 .todo {
   list-style-type: none;
   width: 90%;
@@ -73,4 +77,14 @@ label {
   margin: 1%;
   background-color: brown;
   color: white;
+}
+
+.cardNameList {
+  padding: 0;
+  margin: 20px 0;
+}
+
+.cardName {
+  font-size: 1.2em;
+  text-align: left;
 }
