@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { nanoid } from "nanoid";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 class InputForm extends React.Component {
   state = {
@@ -90,7 +91,10 @@ class AddCard extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     // console.log(this.state.pendingValue);
-    let updateText = this.state.inputText.push(this.state.pendingValue);
+    let updateText = this.state.inputText.push({
+      id: `name${nanoid()}`,
+      name: this.state.pendingValue,
+    });
     this.setState({ updateText });
     this.setState({ pendingValue: "" });
   };
@@ -107,16 +111,39 @@ class AddCard extends React.Component {
     } else {
       return (
         <form onSubmit={this.handleSubmit}>
-          <ul className="cardNameList">
-            {/* <CardName inputText={this.state.inputText} /> */}
-            {this.state.inputText.map((name) => {
-              return (
-                <li className="cardName" key={nanoid()}>
-                  {name}
-                </li>
-              );
-            })}
-          </ul>
+          <DragDropContext>
+            <Droppable droppableId="cardNameList">
+              {(provided) => (
+                <ul
+                  className="cardNameList"
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                >
+                  {this.state.inputText.map((name, index) => {
+                    return (
+                      <Draggable
+                        key={name.id}
+                        draggableId={name.id}
+                        index={index}
+                      >
+                        {(provided) => (
+                          <li
+                            className="cardName"
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                          >
+                            {name.name}
+                          </li>
+                        )}
+                      </Draggable>
+                    );
+                  })}
+                  {provided.placeholder}
+                </ul>
+              )}
+            </Droppable>
+          </DragDropContext>
           <input
             type="text"
             className="inputText"
@@ -135,19 +162,6 @@ class AddCard extends React.Component {
       );
     }
   }
-}
-
-{
-  /* // const CardName = (props) => {
-//   console.log(props);
-//   let nameList = props.inputText.map((name) => {
-//     <li>name</li>;
-//   });
-
-  return (
-    {props.inputText.map((name)=>())}
-  )
-}; */
 }
 
 // function App() {
