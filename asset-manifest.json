@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/trello-like-app/static/css/main.cb5358d1.chunk.css",
-    "main.js": "/trello-like-app/static/js/main.dce45183.chunk.js",
-    "main.js.map": "/trello-like-app/static/js/main.dce45183.chunk.js.map",
+    "main.css": "/trello-like-app/static/css/main.ed34bb0d.chunk.css",
+    "main.js": "/trello-like-app/static/js/main.25487ae3.chunk.js",
+    "main.js.map": "/trello-like-app/static/js/main.25487ae3.chunk.js.map",
     "runtime-main.js": "/trello-like-app/static/js/runtime-main.bf4df8ee.js",
     "runtime-main.js.map": "/trello-like-app/static/js/runtime-main.bf4df8ee.js.map",
     "static/js/2.345142bd.chunk.js": "/trello-like-app/static/js/2.345142bd.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.fa267e85.chunk.js": "/trello-like-app/static/js/3.fa267e85.chunk.js",
     "static/js/3.fa267e85.chunk.js.map": "/trello-like-app/static/js/3.fa267e85.chunk.js.map",
     "index.html": "/trello-like-app/index.html",
-    "static/css/main.cb5358d1.chunk.css.map": "/trello-like-app/static/css/main.cb5358d1.chunk.css.map",
+    "static/css/main.ed34bb0d.chunk.css.map": "/trello-like-app/static/css/main.ed34bb0d.chunk.css.map",
     "static/js/2.345142bd.chunk.js.LICENSE.txt": "/trello-like-app/static/js/2.345142bd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bf4df8ee.js",
     "static/js/2.345142bd.chunk.js",
-    "static/css/main.cb5358d1.chunk.css",
-    "static/js/main.dce45183.chunk.js"
+    "static/css/main.ed34bb0d.chunk.css",
+    "static/js/main.25487ae3.chunk.js"
   ]
 }
