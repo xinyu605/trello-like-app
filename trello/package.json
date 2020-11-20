@@ -1,4 +1,5 @@
 {
+  "homepage": "http://xinyu605.github.io/trello-like-app/",
   "name": "trello",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +9,7 @@
     "@testing-library/user-event": "^12.2.2",
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
+    "nanoid": "^3.1.17",
     "prettier": "^2.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -28,7 +30,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
