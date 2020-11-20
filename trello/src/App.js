@@ -31,8 +31,8 @@ class InputForm extends React.Component {
     if (this.state.isEditing === false) {
       return (
         <form onSubmit={this.handleSubmit}>
-          <h2>Phase 2-2</h2>
-          <button className="button" onClick={this.handleOpen}>
+          <h2>Phase 3</h2>
+          <button className="button addBtn" onClick={this.handleOpen}>
             + Add List
           </button>
         </form>
@@ -40,7 +40,7 @@ class InputForm extends React.Component {
     } else {
       return (
         <form onSubmit={this.handleSubmit}>
-          <h2>Phase 2-2</h2>
+          <h2>Phase 3</h2>
           <input
             type="text"
             id="newTodoInput"
@@ -48,7 +48,7 @@ class InputForm extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <button type="submit" className="button">
+          <button type="submit" className="button addBtn">
             + Add List
           </button>
           <button className="button" onClick={this.handleClose}>
@@ -112,7 +112,7 @@ class AddCard extends React.Component {
     if (this.state.isEditing === false) {
       return (
         <div className="btnGroup">
-          <button className="button" onClick={this.showTypeArea}>
+          <button className="button addBtn" onClick={this.showTypeArea}>
             + Add a card
           </button>
         </div>
@@ -160,10 +160,10 @@ class AddCard extends React.Component {
             value={this.state.pendingValue}
           ></input>
           <div className="btnGroup">
-            <button className="button" type="submit">
+            <button className="button addBtn cardBtn" type="submit">
               + Add a card
             </button>
-            <button className="button" onClick={this.hideTypeArea}>
+            <button className="button cardBtn" onClick={this.hideTypeArea}>
               X
             </button>
           </div>
