@@ -49,6 +49,10 @@ li {
   width: 100%;
 }
 
+.delBtn {
+  background-color: tomato;
+}
+
 .boxWraper {
   width: 100%;
   display: flex;

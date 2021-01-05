@@ -99,6 +99,8 @@ class AddCard extends React.Component {
     this.setState({ pendingValue: "" });
   };
 
+  deleteCard = (event) => {};
+
   handleOnDragEnd = (result) => {
     console.log(result);
     const items = Array.from(this.state.inputText);
@@ -165,6 +167,9 @@ class AddCard extends React.Component {
             </button>
             <button className="button cardBtn" onClick={this.hideTypeArea}>
               X
+            </button>
+            <button className="button cardBtn delBtn" onClick={this.deleteCard}>
+              Delete
             </button>
           </div>
         </form>
