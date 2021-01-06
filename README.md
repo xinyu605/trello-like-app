@@ -5,8 +5,10 @@ https://xinyu605.github.io/trello-like-app/
 
 ## Technologies
 
-### Front-End Language
-- HTML/CSS/JavaScript (ES6)
+### Front-End Basic
+- HTML
+- CSS
+- JavaScript (ES6)
 
 ### Front-End Framework
 - React
